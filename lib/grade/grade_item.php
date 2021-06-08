@@ -938,7 +938,7 @@ class grade_item extends grade_object {
 
             if (!empty($rules)) {
                 foreach ($rules as $rule) {
-                    if ($rule->enabled()) {
+                    if ($rule->is_enabled()) {
                         if (!is_null($userid)) {
                             $rawgrade = $rule->final_grade_modifier($this, $userid, $rawgrade);
                         }
@@ -975,7 +975,7 @@ class grade_item extends grade_object {
 
             if (!empty($rules)) {
                 foreach ($rules as $rule) {
-                    if ($rule->enabled()) {
+                    if ($rule->is_enabled()) {
                         if (!is_null($userid)) {
                             $rawgrade = $rule->final_grade_modifier($this, $userid, $rawgrade);
                         }
@@ -1921,7 +1921,7 @@ class grade_item extends grade_object {
 
             if (!empty($rules)) {
                 foreach ($rules as $rule) {
-                    if ($rule->enabled()) {
+                    if ($rule->is_enabled()) {
                         if (!is_null($userid)) {
                             $finalgrade = $rule->final_grade_modifier($this, $userid, $finalgrade);
                         }
@@ -2705,7 +2705,7 @@ class grade_item extends grade_object {
 
         if (!empty($graderules)) {
             foreach ($graderules as $graderule) {
-                if ($graderule->enabled() && $graderule->owned_by($id)) {
+                if ($graderule->is_enabled() && $graderule->owned_by($id)) {
                     $rules[] = $graderule->get_type();
                 }
             }
@@ -2734,7 +2734,7 @@ class grade_item extends grade_object {
 
         if (!empty($rules)) {
             foreach ($rules as $rule) {
-                if ($rule->enabled()) {
+                if ($rule->is_enabled()) {
                     $gradesymbol = $rule->symbol_modifier($this, $value, $userid, $standardsymbol);
                 }
             }
