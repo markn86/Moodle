@@ -104,14 +104,7 @@ class gradereport_overview_external extends external_api {
         foreach ($coursesgrades as $coursegrade) {
             $gradeinfo = array(
                 'courseid' => $coursegrade['course']->id,
-                'grade' => grade_format_gradevalue(
-                    $coursegrade['finalgrade'],
-                    $coursegrade['courseitem'],
-                    true,
-                    null,
-                    null,
-                    $userid
-                ),
+                'grade' => grade_format_gradevalue($coursegrade['finalgrade'], $coursegrade['courseitem'], true),
                 'rawgrade' => $coursegrade['finalgrade'],
             );
             if (isset($coursegrade['rank'])) {

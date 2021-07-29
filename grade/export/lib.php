@@ -248,9 +248,7 @@ abstract class grade_export {
         $gradeitem->grademax = $grade->get_grade_max();
         $gradeitem->grademin = $grade->get_grade_min();
 
-        $formattedgrade = grade_format_gradevalue(
-            $grade->finalgrade, $gradeitem, false, $displaytype, $this->decimalpoints, $grade->userid
-        );
+        $formattedgrade = grade_format_gradevalue($grade->finalgrade, $gradeitem, false, $displaytype, $this->decimalpoints);
 
         // Resetting the grade item in case it is reused.
         $gradeitem->grademax = $grademax;

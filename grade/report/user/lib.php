@@ -572,25 +572,15 @@ class grade_report_user extends grade_report {
 
                         if ($this->canviewhidden) {
                             $gradeitemdata['graderaw'] = $gradeval;
-                            $data['grade']['content'] = grade_format_gradevalue(
-                                $gradeval,
-                                $grade_grade->grade_item,
-                                true,
-                                null,
-                                null,
-                                $grade_grade->userid
-                            );
+                            $data['grade']['content'] = grade_format_gradevalue($gradeval,
+                                                                                $grade_grade->grade_item,
+                                                                                true);
                         }
                     } else {
                         $data['grade']['class'] = $class;
-                        $data['grade']['content'] = grade_format_gradevalue(
-                            $gradeval,
-                            $grade_grade->grade_item,
-                            true,
-                            null,
-                            null,
-                            $grade_grade->userid
-                        );
+                        $data['grade']['content'] = grade_format_gradevalue($gradeval,
+                                                                            $grade_grade->grade_item,
+                                                                            true);
                         $gradeitemdata['graderaw'] = $gradeval;
                     }
                     $data['grade']['headers'] = "$header_cat $header_row grade";
