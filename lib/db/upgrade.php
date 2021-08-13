@@ -2786,7 +2786,6 @@ function xmldb_main_upgrade($oldversion) {
         $table->add_field('id', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, XMLDB_SEQUENCE, null);
         $table->add_field('gradeitemid', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, null, null, 'id');
         $table->add_field('rulename', XMLDB_TYPE_CHAR, '20', null, XMLDB_NOTNULL, null, null, 'gradeitemid');
-        $table->add_field('instanceid', XMLDB_TYPE_INTEGER, '10', null, XMLDB_NOTNULL, null, null, 'rulename');
 
         // Adding keys to table grading_rules.
         $table->add_key('primary', XMLDB_KEY_PRIMARY, ['id']);
@@ -2794,7 +2793,6 @@ function xmldb_main_upgrade($oldversion) {
 
         // Adding indexes to table grading_rules.
         $table->add_index('rulename', XMLDB_INDEX_NOTUNIQUE, ['rulename']);
-        $table->add_index('instanceid', XMLDB_INDEX_NOTUNIQUE, ['instanceid']);
 
         // Conditionally launch create table for grading_rules.
         if (!$dbman->table_exists($table)) {
